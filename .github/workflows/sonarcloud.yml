@@ -3,11 +3,11 @@ name: SonarCloud
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         run: composer install --no-scripts --no-plugins || true
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v4
         with:
           projectBaseDir: .
         env:
